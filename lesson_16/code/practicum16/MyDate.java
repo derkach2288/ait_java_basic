@@ -1,4 +1,4 @@
-package practicum;
+package practicum16;
 
 public class MyDate {
     int day;

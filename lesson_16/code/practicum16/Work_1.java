@@ -1,4 +1,6 @@
-package practicum;
+package practicum16;
+
+
 import java.util.Scanner;
 
 
