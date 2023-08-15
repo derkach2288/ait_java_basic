@@ -45,23 +45,23 @@ public class SmartArray {
         return res;
     }
 
-    public void remove(int index){ // удаление по индексу
-        if(index>=0 && index<size){
-            for (int i = index+1; i < size; i++) {
-                arr[i-1] = arr[i];
-            }
-            size--;
-        }
-    }
-
 //    public void remove(int index){ // удаление по индексу
-//        if(index>0 && index<size){
-//            for (int i = index; i < size; i++) {
-//                arr[i] = arr[i+1];
+//        if(index>=0 && index<size){
+//            for (int i = index+1; i < size; i++) {
+//                arr[i-1] = arr[i];
 //            }
 //            size--;
 //        }
 //    }
+
+    public void remove(int index){ // удаление по индексу
+        if(index>=0 && index<size){
+            for (int i = index; i < size; i++) {
+                arr[i] = arr[i+1];
+            }
+            size--;
+        }
+    }
 
 
 }

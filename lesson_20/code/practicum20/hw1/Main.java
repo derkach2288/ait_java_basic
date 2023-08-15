@@ -22,6 +22,6 @@ public class Main {
         nembers.remove(0);
 
         System.out.println(nembers);
-
+        handler.printStat();
     }
 }
