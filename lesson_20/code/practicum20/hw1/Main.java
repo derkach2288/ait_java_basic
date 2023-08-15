@@ -19,7 +19,7 @@ public class Main {
         NumbersHandler handler = new NumbersHandler(nembers);
         handler.printStat();
 
-        nembers.remove(0);
+        nembers.remove(1);
 
         System.out.println(nembers);
         handler.printStat();
