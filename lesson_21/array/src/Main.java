@@ -14,7 +14,6 @@ public class Main {
 
         System.out.println(Arrays.binarySearch(array2, 77));
 
-        System.out.println(Arrays.minArray(array));
         Arrays.sort(array);
 
         for (int i = 0; i < array.length; i++) {
