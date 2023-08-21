@@ -10,7 +10,7 @@ class UserTest {
 
     private User user;
     private String email = "john@gmail.com";
-    private String password = "1234";
+    private String password = "1234567aS!";
 
 
     @BeforeEach
@@ -63,6 +63,52 @@ class UserTest {
         String invalidEmail = "jo!hn@gmx.de";
         user.setEmail(invalidEmail);
         assertEquals(email, user.getEmail());
+    }
+
+
+
+    //-------------------------
+
+    @Test
+    void testValidPassword(){
+        String validPassword = "123eeeS@";
+        user.setPassword(validPassword);
+        assertEquals(validPassword, user.getPassword());
+    }
+
+    @Test
+    void testPasswordMin8symbols(){
+        String invalidPassword = "fgD1!";
+        user.setPassword(invalidPassword);
+        assertEquals(password, user.getPassword());
+    }
+
+    @Test
+    void testPasswordMin1SymbolInUppercase(){
+        String invalidPassword = "fgssssss1!";
+        user.setPassword(invalidPassword);
+        assertEquals(password, user.getPassword());
+    }
+
+    @Test
+    void testPasswordMin1SymbolInLowercase(){
+        String invalidPassword = "DDHHGGGGGG1!";
+        user.setPassword(invalidPassword);
+        assertEquals(password, user.getPassword());
+    }
+
+    @Test
+    void testPasswordMin1SymbolInDigit(){
+        String invalidPassword = "DDHHGwwss!";
+        user.setPassword(invalidPassword);
+        assertEquals(password, user.getPassword());
+    }
+
+    @Test
+    void testPasswordInCorrectSymbol(){
+        String invalidPassword = "DDHHGww1ss";
+        user.setPassword(invalidPassword);
+        assertEquals(password, user.getPassword());
     }
 
 

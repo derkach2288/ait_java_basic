@@ -15,7 +15,7 @@ public class User {
 
     public User(String email, String password) {
         setEmail(email); // чтоб выполнилась проверка в конструкторе при создании
-        this.password = password;
+        setPassword(password);
     }
 
     public String getEmail() {
@@ -64,7 +64,60 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if (passwordValid(password)) {
+            this.password = password;
+        } else {
+            System.out.println(password + "is not valid");
+        }
+    }
+
+    private boolean passwordValid(String password) {
+        int counter = 0;
+
+        if (password.length()>=8){
+            counter++;
+        }
+
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (Character.isDigit(c)){
+                counter++;
+                break;
+            }
+        }
+
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (Character.isLowerCase(c)){
+                counter++;
+                break;
+            }
+        }
+
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (Character.isUpperCase(c)){
+                counter++;
+                break;
+            }
+        }
+
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (c=='!' || c=='%' || c=='@' || c=='*' || c=='&'){
+                counter++;
+                break;
+            }
+        }
+
+
+
+
+
+        if (counter != 5) {
+            return false;
+        }
+        return true;
     }
 
     @Override
