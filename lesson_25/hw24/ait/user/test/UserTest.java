@@ -20,7 +20,7 @@ class UserTest {
 
     @Test
     void testValidEmail(){
-        String validEmail = " john@gmx.de ".trim();
+        String validEmail = "john@gmx.de";
         user.setEmail(validEmail);
         assertEquals(validEmail, user.getEmail());
     }
