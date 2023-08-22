@@ -80,7 +80,7 @@ public class User {
             res[0] = true;
         }
         String[] arr = password.split("");
-        for (int i = 0; i < password.length(); i++) {
+        for (int i = 0; i < arr.length; i++) {
             String s = arr[i];
             char c = s.charAt(0);
             if (Character.isUpperCase(c)) {
