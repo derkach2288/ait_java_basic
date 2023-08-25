@@ -43,13 +43,13 @@ class CompanyTest {
     @org.junit.jupiter.api.Test
     void removeEmployee() {
         assertFalse(employees.length<1);
-        assertEquals(employees[1].getId(), company.removeEmployee(2000));
+        assertEquals(employees[1], company.removeEmployee(2000));
         assertEquals(3, company.quantity());
     }
 
     @org.junit.jupiter.api.Test
     void findEmployee() {
-        assertEquals(employees[1].getId(), company.findEmployee(2000));
+        assertEquals(employees[1], company.findEmployee(2000));
     }
 
     @org.junit.jupiter.api.Test
