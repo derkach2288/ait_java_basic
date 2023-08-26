@@ -30,7 +30,7 @@ class CompanyTest {
 
     @org.junit.jupiter.api.Test
     void addEmployee() {
-        assertFalse( company.addEmployee(null));
+        assertFalse(company.addEmployee(null));
         assertFalse(company.addEmployee(employees[1])); // проверка, чтоб не добавляьб такого, который уже есть
         Employee employee = new SalesManager(5000, "Rabindranate", "Anand", 80, 30000, 0.1);
         assertTrue(company.addEmployee(employee));
@@ -42,7 +42,6 @@ class CompanyTest {
 
     @org.junit.jupiter.api.Test
     void removeEmployee() {
-        assertFalse(employees.length<1);
         assertEquals(employees[1], company.removeEmployee(2000));
         assertEquals(3, company.quantity());
     }
@@ -72,7 +71,7 @@ class CompanyTest {
         for (int i = 0; i < employees.length; i++) {
             sum += employees[i].calcSalary();
         }
-        double avg = sum/employees.length;
+        double avg = sum / employees.length;
         assertEquals(avg, company.avgSalary());
 
     }
@@ -81,9 +80,9 @@ class CompanyTest {
     void totalSales() {
         double sum = 0;
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] instanceof SalesManager){ // instanceof проверяет, является ли employees[i] эекземпляром класса SalesManager
+            if (employees[i] instanceof SalesManager) { // instanceof проверяет, является ли employees[i] эекземпляром класса SalesManager
                 SalesManager sm = (SalesManager) employees[i];
-                sum+= sm.getSalesValue();
+                sum += sm.getSalesValue();
             }
         }
         assertEquals(sum, company.totalSales());
