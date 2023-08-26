@@ -15,6 +15,7 @@ class UserTest {
 
     @BeforeEach
     void setUp() {
+
         user = new User(email, password); // перед каждым тестом создать юзера
     }
 
