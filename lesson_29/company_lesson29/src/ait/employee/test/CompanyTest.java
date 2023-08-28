@@ -6,6 +6,7 @@ import ait.employee.model.Employee;
 import ait.employee.model.Manager;
 import ait.employee.model.SalesManager;
 import ait.employee.model.WageEmployee;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +16,7 @@ class CompanyTest {
     Company company;
     Employee[] employees;
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     void setUp() {
         company = new CompanyImpl(5);
         employees = new Employee[4];
