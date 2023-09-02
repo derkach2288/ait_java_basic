@@ -5,17 +5,17 @@ import ait.employee.model.SalesManager;
 
 import java.util.function.Predicate;
 
-public class CompanyImpl implements Company{
+public class CompanyImpl implements Company {
     private Employee[] employees;
     private int size; // длина массива, количество сотрудников
 
-    public CompanyImpl(int capacity){
+    public CompanyImpl(int capacity) {
         employees = new Employee[capacity];
     }
 
     @Override
     public boolean addEmployee(Employee employee) {
-        if (employee == null || employees.length == size || findEmployee(employee.getId()) != null){ // нельзя добавить null || нельзя добавть, если мест уже нету || нельзя добавить существующего, если метод поиска вернул не null
+        if (employee == null || employees.length == size || findEmployee(employee.getId()) != null) { // нельзя добавить null || нельзя добавть, если мест уже нету || нельзя добавить существующего, если метод поиска вернул не null
             return false;
         }
         employees[size++] = employee;
@@ -25,7 +25,7 @@ public class CompanyImpl implements Company{
     @Override
     public Employee removeEmployee(int id) {
         for (int i = 0; i < size; i++) {
-            if(employees[i].getId() == id){
+            if (employees[i].getId() == id) {
                 Employee victim = employees[i];
                 employees[i] = employees[--size];
                 employees[size] = null;
@@ -38,7 +38,7 @@ public class CompanyImpl implements Company{
     @Override
     public Employee findEmployee(int id) {
         for (int i = 0; i < size; i++) {
-            if ( employees[i].getId() == id ){
+            if (employees[i].getId() == id) {
                 return employees[i];
             }
         }
@@ -54,23 +54,23 @@ public class CompanyImpl implements Company{
     public double totalSalary() {
         double sum = 0;
         for (int i = 0; i < size; i++) {
-                sum += employees[i].calcSalary();
+            sum += employees[i].calcSalary();
         }
         return sum;
     }
 
     @Override
     public double avgSalary() {
-        return totalSalary()/size;
+        return totalSalary() / size;
     }
 
     @Override
     public double totalSales() {
         double sum = 0;
         for (int i = 0; i < size; i++) {
-            if (employees[i] instanceof SalesManager){ // instanceof проверяет, является ли employees[i] эекземпляром класса SalesManager
+            if (employees[i] instanceof SalesManager) { // instanceof проверяет, является ли employees[i] эекземпляром класса SalesManager
                 SalesManager sm = (SalesManager) employees[i];
-                sum+= sm.getSalesValue();
+                sum += sm.getSalesValue();
             }
         }
         return sum;
@@ -85,7 +85,7 @@ public class CompanyImpl implements Company{
 
     @Override
     public Employee[] findEmployeesHoursGreaterThan(int hours) {
-        Predicate<Employee> predicate = e -> e.getHours()>hours; // принимает "e" - возвращает тру или фолс
+        Predicate<Employee> predicate = e -> e.getHours() > hours; // принимает "e" - возвращает тру или фолс
         return findEmployeesByPredicate(predicate);
     }
 
@@ -100,16 +100,16 @@ public class CompanyImpl implements Company{
         return findEmployeesByPredicate(predicate);
     }
 
-    private Employee[] findEmployeesByPredicate(Predicate<Employee> predicate){ // возвращает employee, для которых predicate.test сказал тру
+    private Employee[] findEmployeesByPredicate(Predicate<Employee> predicate) { // возвращает employee, для которых predicate.test сказал тру
         int count = 0;
         for (int i = 0; i < size; i++) {
-            if (predicate.test(employees[i])){
+            if (predicate.test(employees[i])) {
                 count++;
             }
         }
         Employee[] res = new Employee[count];
         for (int i = 0, j = 0; j < res.length; i++) {
-            if (predicate.test(employees[i])){
+            if (predicate.test(employees[i])) {
                 res[j] = employees[i];
                 j++;
             }

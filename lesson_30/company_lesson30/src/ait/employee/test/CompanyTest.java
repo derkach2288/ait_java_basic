@@ -104,6 +104,7 @@ class CompanyTest {
         Employee[] actual = company.findEmployeesHoursGreaterThan(100);
         Employee[] expected = {employees[0], employees[1], employees[2]};
         assertArrayEquals(expected, actual);
+
         }
 
     @Test
