@@ -1,6 +1,7 @@
 package ait.employee.test;
 
 import ait.employee.dao.Company;
+import ait.employee.dao.CompanyArraysImpl;
 import ait.employee.dao.CompanyImpl;
 import ait.employee.model.Employee;
 import ait.employee.model.Manager;
@@ -8,6 +9,8 @@ import ait.employee.model.SalesManager;
 import ait.employee.model.WageEmployee;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +21,7 @@ class CompanyTest {
 
     @BeforeEach
     void setUp() {
-        company = new CompanyImpl(5);
+        company = new CompanyArraysImpl(5);
         employees = new Employee[4];
         employees[0] = new Manager(1000, "John", "Smith", 160, 3000, 5);
         employees[1] = new WageEmployee(2000, "Mary", "Smith", 160, 15);
@@ -105,7 +108,7 @@ class CompanyTest {
         Employee[] expected = {employees[0], employees[1], employees[2]};
         assertArrayEquals(expected, actual);
 
-        }
+    }
 
     @Test
     void findEmployeesSalaryRanger() {
