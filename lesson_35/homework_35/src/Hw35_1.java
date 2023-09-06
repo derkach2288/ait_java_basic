@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-import java.util.List;
 
-public class hw35_1 {
+public class Hw35_1 {
     /*
     Задача 1
 Написать метод, принимающий два листа целых чисел одинаковой длины и возвращающий лист, содержащий элементы Yes или No,

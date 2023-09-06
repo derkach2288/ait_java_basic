@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class hw35_2 {
+public class Hw35_2 {
     /*
     Написать метод, принимающий лист целых чисел и целое число и возвращающий
     лист без элементов больших этого числа.
@@ -22,7 +22,7 @@ public class hw35_2 {
         ArrayList<Integer> res = new ArrayList<>();
         for (int i = 0; i < ints.size(); i++) {
             if (ints.get(i) <= number) {
-                res.add(i, ints.get(i));
+                res.add(ints.get(i));
             }
         }
         return res;
