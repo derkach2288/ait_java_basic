@@ -36,10 +36,11 @@ public class OurLinkedList<E> implements OurList<E> {
             return currentNode;
         }
     }
-    public void printList(){
+    public void printOurList1(){
         Node<E> currentNode = first;
         for (int i = 0; i < size; i++) {
             System.out.println(currentNode.value);
+            currentNode = currentNode.next;
         }
     }
 

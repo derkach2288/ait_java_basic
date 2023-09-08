@@ -11,7 +11,7 @@ public class Main {
         list.set(new Person("Oleg"), 1);
         System.out.println(list.get(1));
         System.out.println("=========");
-        list.printList();
+        list.printOurList1();
 
     }
 }
