@@ -79,6 +79,14 @@ public class OurLinkedList<E> implements OurList<E> {
 
     @Override
     public boolean remove(E o) {
+        Node<E> currentNode = first;
+        for (int i = 0; i < size; i++) {
+            if (currentNode.value.equals(o)){
+                removeById(i);
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
 
         return false;
     }
@@ -88,27 +96,22 @@ public class OurLinkedList<E> implements OurList<E> {
         Node<E> deletedNode = getNodeByIndex(index);
         if (deletedNode !=null){
             E value = deletedNode.value;
-            if (deletedNode == first){
+            if (deletedNode == first){ // если первая
                 first = deletedNode.next;
-                if (deletedNode.next!=null){
-                    deletedNode.next.prev = null;
+                if (deletedNode.prev!=null){ // если есть слева
+                    deletedNode.prev.next=deletedNode.next;
+                    deletedNode.prev = null;
                 }
             }
-            if (deletedNode == last){
+            if (deletedNode == last){ // если последняя
                 last = deletedNode.prev;
-                if (deletedNode.prev!=null){
-                    deletedNode.prev.next=null;
+                if (deletedNode.next!=null){
+                    deletedNode.next.prev = deletedNode.prev;  // если не последняя
+                    deletedNode.next = null; //
                 }
             }
-            if (deletedNode!=first && deletedNode!=last){
-                deletedNode.next.prev = deletedNode.prev;
-                deletedNode.prev.next = deletedNode.next;
-                deletedNode.prev=null;
-                deletedNode.next=null;
-                deletedNode.value=null;
-
-            }
-
+            deletedNode.value = null;
+            size--;
             return value;
         }
         return null;
