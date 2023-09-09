@@ -36,7 +36,7 @@ public class OurLinkedList<E> implements OurList<E> {
             return currentNode;
         }
     }
-    public void printOurList1(){
+    public void printOurList(){
         Node<E> currentNode = first;
         for (int i = 0; i < size; i++) {
             System.out.println(currentNode.value);

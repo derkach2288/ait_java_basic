@@ -12,13 +12,13 @@ public class Main {
         list.set(new Person("Oleg"), 1);
         System.out.println(list.get(1));
         System.out.println("=========");
-        list.printOurList1();
+        list.printOurList();
         System.out.println("Remove Ob");
         list.remove(p1);
-        list.printOurList1();
+        list.printOurList();
         System.out.println("Remove id");
         list.removeById(1);
-        list.printOurList1();
+        list.printOurList();
 
 
     }
