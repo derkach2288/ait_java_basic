@@ -96,18 +96,18 @@ public class OurLinkedList<E> implements OurList<E> {
         Node<E> deletedNode = getNodeByIndex(index);
         if (deletedNode !=null){
             E value = deletedNode.value;
-            if (deletedNode == first){ // если первая
-                first = deletedNode.next;
-                if (deletedNode.prev!=null){ // если есть слева
-                    deletedNode.prev.next=deletedNode.next;
-                    deletedNode.prev = null;
+            if (deletedNode.prev!=null){ // если есть слева
+                deletedNode.prev.next=deletedNode.next;
+                deletedNode.prev = null;
+                if (deletedNode == first){ // если первая
+                    first = deletedNode.next;
                 }
             }
-            if (deletedNode == last){ // если последняя
-                last = deletedNode.prev;
-                if (deletedNode.next!=null){
-                    deletedNode.next.prev = deletedNode.prev;  // если не последняя
-                    deletedNode.next = null; //
+            if (deletedNode.next!=null){ // если  не последняя
+                deletedNode.next.prev = deletedNode.prev;
+                deletedNode.next = null;
+                if (deletedNode == last){ // если последняя
+                    last = deletedNode.prev;
                 }
             }
             deletedNode.value = null;
