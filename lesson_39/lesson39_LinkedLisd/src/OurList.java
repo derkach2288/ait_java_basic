@@ -1,4 +1,6 @@
-public interface OurList<E>{
+import java.util.Iterator;
+
+public interface OurList<E> extends Iterable<E> {
     void append(E o);
 
     E get(int index);
