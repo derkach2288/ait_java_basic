@@ -1,6 +1,12 @@
 import java.util.*;
 
 public class Hw42_1 {
+    /*
+    ** Задача 1 **
+
+Дана String с произвольным текстом (без знаков препинания слова разделены пробелом). Необходимо получить map,
+* где ключем будет выступать первая буква слова, а значением, список слов начинающихся на эту букву
+     */
 
     public static void main(String[] args) {
         String str = "HashMap<K,V> represents a mapping or dictionary where each element represents a key-value pair " +
