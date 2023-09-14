@@ -10,14 +10,22 @@ public class Hw2 {
          */
 
         List<String> students = new ArrayList<>(List.of("Ann", "John", "Jack", "Ann", "Jack", "Ann", "Ann"));
+
         Map<String, Integer> visit = new HashMap<>();
 
+//        for (String s : students) {
+//            if (visit.containsKey(s)){
+//                visit.put(s, visit.get(s)+1);
+//            } else visit.put(s, 1);
+//        }
+
         for (String s : students) {
-            if (visit.containsKey(s)){
-                visit.put(s, visit.get(s)+1);
-            } else visit.put(s, 1);
+            visit.put(s, visit.getOrDefault(s, 0)+1);
         }
+
         System.out.println(visit);
 
     }
+
+
 }
