@@ -34,14 +34,6 @@ public class HW43_2 {
 
         System.out.println(mapPerson(listPerson));
 
-//        Map<Integer, List> mapPerson = new HashMap<>();
-//        for (Person person : listPerson) {
-//            List<String> list = mapPerson.getOrDefault(person.getAge(), new ArrayList());
-//            list.add(person.getName());
-//            mapPerson.put(person.getAge(), list);
-//        }
-//        System.out.println(mapPerson);
-
 
 
 
