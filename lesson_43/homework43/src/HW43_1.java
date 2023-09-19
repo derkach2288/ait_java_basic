@@ -96,11 +96,16 @@ public class HW43_1 {
         return result;
     }
 
-//    public static void getFreqWords2(TreeMap<Integer, List<String>> map, int n){
-//        int count = 0;
-//        for (Integer key : map.descendingKeySet()){
-//            List<String>
-//        }
-//    }
+    public static  void getFreqWords2(TreeMap<Integer,List<String>> map, int n){
+        int count=0;
+        for (Integer key:  map.descendingKeySet()){
+            List<String> value = map.get(key);
+            for (String word:value){
+                System.out.println(word);
+                count++;
+                if(count>=n) return;
+            }
+        }
+    }
 
 }
