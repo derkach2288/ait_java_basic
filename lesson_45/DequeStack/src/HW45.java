@@ -18,7 +18,7 @@ public class HW45 {
 
         String str = "{()[]}";
         String str2 = "{()[}]";
-        String str3 = "()";
+        String str3 = "( )";
 
         System.out.println(parenthesisMatching(str3));
 
@@ -27,15 +27,18 @@ public class HW45 {
         Deque<Character> res = new ArrayDeque<>();
         for (int i = 0; i < str.length(); i++) {
             Character ch = str.charAt(i);
-            if (ch == '('){  //()
-                res.push(')');
-            } else if (ch == '{'){
-                res.push('}');
-            } else if (ch == '['){
-                res.push(']');
-            } else if (ch == res.peek()) {
-                res.pop();
-            } else return false;
+            if (ch == '(' || ch == ')' || ch == '[' || ch == ']' || ch == '{' || ch == '}') {
+
+                if (ch == '(') {  //()
+                    res.push(')');
+                } else if (ch == '{') {
+                    res.push('}');
+                } else if (ch == '[') {
+                    res.push(']');
+                } else if (ch == res.peek()) {
+                    res.pop();
+                } else return false;
+            }
 
 
         }
