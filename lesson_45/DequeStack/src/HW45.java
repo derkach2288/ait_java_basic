@@ -16,10 +16,11 @@ public class HW45 {
      */
     public static void main(String[] args) {
 
-        String str = "{()[]}"; // })
-        String str2 = "{()[}]"; //
+        String str = "{()[]}";
+        String str2 = "{()[}]";
+        String str3 = "()";
 
-        System.out.println(parenthesisMatching(str2));
+        System.out.println(parenthesisMatching(str3));
 
     }
     public static boolean parenthesisMatching(String str){
@@ -34,7 +35,7 @@ public class HW45 {
                 res.push(']');
             } else if (ch == res.peek()) {
                 res.pop();
-            }
+            } else return false;
 
 
         }
