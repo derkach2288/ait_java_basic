@@ -21,6 +21,10 @@ public class HW45 {
         String str3 = "( )";
 
         System.out.println(parenthesisMatching(str3));
+        System.out.println(parenthesisMatching("( {} [] )"));
+        System.out.println(parenthesisMatching("( {} [ )"));
+        System.out.println(parenthesisMatching("( } [] )"));
+        System.out.println(parenthesisMatching("{ ( } [] )"));
 
     }
     public static boolean parenthesisMatching(String str){
@@ -28,7 +32,6 @@ public class HW45 {
         for (int i = 0; i < str.length(); i++) {
             Character ch = str.charAt(i);
             if (ch == '(' || ch == ')' || ch == '[' || ch == ']' || ch == '{' || ch == '}') {
-
                 if (ch == '(') {  //()
                     res.push(')');
                 } else if (ch == '{') {
@@ -42,6 +45,6 @@ public class HW45 {
 
 
         }
-        return res.isEmpty() ? true : false;
+        return res.isEmpty();
     }
 }
