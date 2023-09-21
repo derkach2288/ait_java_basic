@@ -34,7 +34,7 @@ public class HW45v2 {
     public static void main(String[] args) {
 
         System.out.println(checkBrackets("( {} [] )")); //true
-        System.out.println(checkBrackets("( {} [ )")); //false
+        System.out.println(checkBrackets("( {ddd} [ )")); //false
         System.out.println(checkBrackets("( } [] )")); //false
         System.out.println(checkBrackets("{ ( } [] )")); // false
         System.out.println(checkBrackets("")); // true
@@ -52,6 +52,26 @@ public class HW45v2 {
                 stack.push(bracket);
             } else if(pairToCloseBracket.containsKey(ch)  && ((stack.isEmpty() || ch!=stack.pop()))  ) {
                 return false;
+            }
+        }
+        return stack.isEmpty();
+    }
+
+
+    public static boolean checkBrackets2(String brecketStr){
+        Map<Character, Character> brackets = new HashMap<>();
+        brackets.put(')', '(');
+        brackets.put(']', '[');
+        brackets.put('}', '{');
+
+        Deque<Character> stack = new LinkedList<>();
+        for (Character c: brecketStr.toCharArray()) {
+            if (brackets.containsValue(c)){
+                stack.push(c);
+            } else if (brackets.containsKey(c)){
+                if (stack.isEmpty() || stack.pop() != brackets.get(c)){
+                    return false;
+                }
             }
         }
         return stack.isEmpty();
