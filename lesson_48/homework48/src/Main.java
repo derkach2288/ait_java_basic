@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<String> incomingData = new ArrayList<>(List.of("DE1613321892788;Jack Johnson", "DE1613324427567;Ivan Ivanov", "DE1612324427565;Ann Smith"));
-        List<String> incomingData1 = new ArrayList<>(List.of("D89278r8;Jack Johnson", "DE1613324427567; Ivanov", "DE1612324427565;Ann Smith"));
+        List<String> incomingData1 = new ArrayList<>(List.of("D89278r8;Jack Johnson", "DE1613324427567; Ivanov", "DE1612324427565;Ann Smith", "DE1612324427565;"));
         List<Account> accounts = new ArrayList<>();
 
 
@@ -52,12 +52,14 @@ public class Main {
         AccountCreateException exception = new AccountCreateException(errors);
 
         if (str == null || str.isEmpty() || !str.contains(";") || str.indexOf(" ") != str.lastIndexOf(" ") || str.indexOf(";") != str.lastIndexOf(";")) {
-//            errors.add("NULL or incorrect data");
-            throw new RuntimeException("NULL or incorrect data");
+            errors.add("NULL or incorrect data");
+//            throw new RuntimeException("NULL or incorrect data");
+            throw exception;
         }
         if (str.indexOf(";")>= str.length()-1) {
-//            errors.add("missing name");
-            throw new RuntimeException("missing name");
+            errors.add("missing name");
+//            throw new RuntimeException("missing name");
+            throw exception;
         }
 
         String[] owner = str.split(";");
@@ -69,8 +71,9 @@ public class Main {
             if (!isNumber(iban.substring(2))) errors.add("iban should only contain numbers after DE");
         }
         if (!owner[1].contains(" ")) {
-//            errors.add("missing firstname or lastname");
-            throw new RuntimeException("missing firstname or lastname");
+            errors.add("missing firstname or lastname");
+//            throw new RuntimeException("missing firstname or lastname");
+            throw exception;
         }
 
         if (owner[1].indexOf(" ")>=owner[1].length()-1) throw new RuntimeException("missing lastname");
