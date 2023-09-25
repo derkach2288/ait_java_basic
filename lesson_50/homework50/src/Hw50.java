@@ -64,6 +64,7 @@ public class Hw50 {
         for (Character ch : str.toCharArray()){
 
             Robot robot = Robot.valueOf(String.valueOf(ch));
+//            System.out.print(++counter);
             robot.setCount(++counter);
             robot.printForAllCommands();
             robot.printCommand();
