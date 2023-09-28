@@ -30,8 +30,8 @@ public class HW53 {
     public static void main(String[] args) {
 
 //        System.out.println(readFile());
-        stringToMap(readFile());
-        listPersons(stringToMap(readFile()));
+//        stringToMap(readFile());
+//        listPersons(stringToMap(readFile()));
 
         writeToFile(listPersons(stringToMap(readFile())));
 
