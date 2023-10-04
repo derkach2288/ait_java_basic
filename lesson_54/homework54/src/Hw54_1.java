@@ -32,7 +32,6 @@ public class Hw54_1 {
      */
 
 
-
     public static void main(String[] args) {
         int a = 43;
         System.out.println(Integer.toBinaryString(a));
@@ -61,11 +60,11 @@ public class Hw54_1 {
 
     public static void write(byte[] arr) throws IOException {
         FileTypes fileType = getFileType(arr);
-        String name="pic";
-        if(fileType==FileTypes.CLASS) {
-            name="Main";
+        String name = "pic";
+        if (fileType == FileTypes.CLASS) {
+            name = "Main";
         }
-        name=name+fileType.getExt();
+        name = name + fileType.getExt();
         try (BufferedOutputStream os = new BufferedOutputStream(new FileOutputStream(name))) {
             os.write(arr);
         }
@@ -81,40 +80,48 @@ public class Hw54_1 {
         }
     }
 
-    public static FileTypes getFileType(byte[] arr){
-        byte[] gif = new byte[]{(byte)0x47, (byte)0x49, (byte)0x46, (byte)0x38, (byte)0x39, (byte)0x61}; // 0x означает, что число в 16ричном виде
-        byte[] jpeg = new byte[]{(byte)0xff, (byte)0xd8};
-        byte[] klass = new byte[]{(byte)0xca, (byte)0xfe, (byte)0xba, (byte)0xbe};
-
-        boolean flag=true;
-        for (int i = 0; i < gif.length; i++) {
-//            System.out.print(Integer.toHexString(gif[i]) + " "); // .toHexString интерпритирует в 16ричном виде
-            if (arr[i]!=jpeg[i]) {
-                flag = false;
-                break;
-            }
+    public static FileTypes getFileType(byte[] arr) {
+        for (FileTypes ft : FileTypes.values()){
+            if (ft.checkType(arr)) return ft;
         }
-        if(flag) return FileTypes.GIF;
-
-
-        flag=true;
-        for (int i = 0; i <jpeg.length ; i++) {
-            if (arr[i]!=jpeg[i]){
-                flag=false;
-                break;
-            }
-        }
-        if(flag) return FileTypes.JPG;
-
-        flag=true;
-        for (int i = 0; i <klass.length ; i++) {
-            if (arr[i]!=klass[i]){
-                flag=false;
-                break;
-            }
-        }
-        if(flag) return FileTypes.CLASS;
         return null;
     }
+
+
+//    public static FileTypes getFileType(byte[] arr){
+//        byte[] gif = new byte[]{(byte)0x47, (byte)0x49, (byte)0x46, (byte)0x38, (byte)0x39, (byte)0x61}; // 0x означает, что число в 16ричном виде
+//        byte[] jpeg = new byte[]{(byte)0xff, (byte)0xd8};
+//        byte[] klass = new byte[]{(byte)0xca, (byte)0xfe, (byte)0xba, (byte)0xbe};
+//
+//        boolean flag=true;
+//        for (int i = 0; i < gif.length; i++) {
+////            System.out.print(Integer.toHexString(gif[i]) + " "); // .toHexString интерпритирует в 16ричном виде
+//            if (arr[i]!=gif[i]) {
+//                flag = false;
+//                break;
+//            }
+//        }
+//        if(flag) return FileTypes.GIF;
+//
+//
+//        flag=true;
+//        for (int i = 0; i <jpeg.length ; i++) {
+//            if (arr[i]!=jpeg[i]){
+//                flag=false;
+//                break;
+//            }
+//        }
+//        if(flag) return FileTypes.JPG;
+//
+//        flag=true;
+//        for (int i = 0; i <klass.length ; i++) {
+//            if (arr[i]!=klass[i]){
+//                flag=false;
+//                break;
+//            }
+//        }
+//        if(flag) return FileTypes.CLASS;
+//        return null;
+//    }
 
 }

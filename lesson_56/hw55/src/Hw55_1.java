@@ -15,69 +15,60 @@ import java.util.Random;
 
 public class Hw55_1 {
     public static void main(String[] args) {
-        int[][] arr = fillTheArray(5, 3);
-        printArray(arr);
 
-        System.out.println("convertedToOneArray");
-        int[] arrOne = convertedToOneArray(arr);
-        System.out.println(Arrays.toString(arrOne));
+//        int[][] arr ={ {3,4,5}, {6,7,8}};
+        int[][] array = createArrayAndFill(5, 3);
+        printArray(array);
+        System.out.println(Arrays.toString(toArray(array)));
 
-        System.out.println("swapLines");
-        printArray(swapLines(arr));
-
+        System.out.println("--------");
+        changeRows(array,1, 3);
+        printArray(array);
 
 
     }
 
-    public static int[][] fillTheArray(int x, int y){
-        int[][] arr = new int[x][y];
-        Random random = new Random();
-
+    public static int[][] createArrayAndFill(int row, int col) {
+        int[][] arr = new int[row][col];
+        Random rnd = new Random();
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                arr[i][j] = random.nextInt(0, 100);
+                arr[i][j] = rnd.nextInt(50);
             }
         }
-
         return arr;
     }
 
-    public static void printArray(int[][] arr){
+    public static void printArray(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                System.out.print(arr[i][j] + "\t");
+                System.out.printf("%3d ", arr[i][j]);
             }
             System.out.println();
         }
     }
 
-    public static int[] convertedToOneArray(int[][] arr){
-        int[] res = new int[15];
-
-        for (int i = 0, count = 0; i < arr.length; i++) {
+    public static int[] toArray(int[][] arr) {
+        int[] result = new int[arr.length*arr[0].length];
+        int index=0;
+        for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                res[count++] = arr[i][j];
+                result[index++] = arr[i][j];
             }
         }
 
-        return res;
+        return result;
     }
 
-    public static int[][] swapLines(int[][] arr){
-        int[][] res = new int[arr.length][];
-//        res[0] = arr[arr.length-1].clone();
-//        res[arr.length-1] = arr[0].clone();
-        for (int i = 0; i < res.length; i++) {
-            if (i==0) {
-                res[0] = arr[arr.length-1].clone();
-            } else if (i== arr.length-1){
-                res[i] = arr[0].clone();
-            } else {
-                res[i] = arr[i].clone();
-            }
+    public static void changeRows(int[][] arr, int row1, int row2){
+        if (row1<0 || row2<0 || row1>=arr.length || row2 >= arr.length){
+            throw new IllegalArgumentException("IllegalArgumentException");
         }
 
-        return res;
+        int[] temp = arr[row1];
+        arr[row1] = arr[row2];
+        arr[row2] = temp;
     }
+
 
 }
