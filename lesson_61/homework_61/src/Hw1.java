@@ -10,7 +10,7 @@
 import java.text.ParseException;
 import java.util.List;
 
-public class Main {
+public class Hw1 {
     public static void main(String[] args) throws ParseException {
 
         List<Person> persons = List.of(
