@@ -12,7 +12,7 @@ time - в формате "HH-mm"
 и остальную необходимую информацию
 Создайте лист конференций и отсортируйте их по возрастанию (от ближайших к тем которые только будут).
  */
-public class Main {
+public class Hw1 {
     public static void main(String[] args) {
 
         List<Conference> conferences = List.of(
