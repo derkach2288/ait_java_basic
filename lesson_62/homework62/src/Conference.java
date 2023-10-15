@@ -45,6 +45,8 @@ public class Conference implements Comparable<Conference>{
 
 
         this.dateTime = LocalDateTime.of(date, time);
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyy HH-mm");
+//        this.dateTime = LocalDateTime.parse((strDate + " " + strTime), formatter);
 
     }
 
